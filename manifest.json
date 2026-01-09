@@ -1,0 +1,22 @@
+{
+  "name": "EcoTranspire: Calcolo Irrigazione",
+  "short_name": "EcoTranspire",
+  "description": "Simulatore di evapotraspirazione e calcolatore tempi di irrigazione",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/427/427112.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/427/427112.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
