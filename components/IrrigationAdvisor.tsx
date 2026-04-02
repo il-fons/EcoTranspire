@@ -423,9 +423,6 @@ const IrrigationAdvisor: React.FC = () => {
                 <label className="block text-sm font-medium text-slate-300">
                   Tempo d'irrigazione necessario
                 </label>
-                <span className="text-leaf-400 text-2xl font-black bg-leaf-900/30 px-4 py-2 rounded-xl border border-leaf-800/50">
-                  {maxIrrigationTime} {maxIrrigationTime === 1 ? 'ora' : 'ore'}
-                </span>
               </div>
               <div className="relative pt-6 pb-2">
                 <input
@@ -481,7 +478,7 @@ const IrrigationAdvisor: React.FC = () => {
               </p>
             </div>
 
-            <div className="md:col-span-3 grid md:grid-cols-2 gap-6">
+            <div className="md:col-span-3 grid md:grid-cols-3 gap-6">
               {/* Portata Totale Richiesta */}
               <div className="bg-gradient-to-br from-slate-900 to-slate-950 p-8 rounded-2xl border border-slate-800 flex flex-col justify-center items-center text-center shadow-inner">
                 <span className="text-xs text-slate-500 uppercase font-black mb-2 tracking-[0.2em]">Portata Totale Richiesta</span>
@@ -495,6 +492,17 @@ const IrrigationAdvisor: React.FC = () => {
                   <span className="text-leaf-300 font-mono font-bold">
                     ≈ {(result.totalSystemFlow * 1000 / 3600).toFixed(2)} l/s
                   </span>
+                </div>
+              </div>
+
+              {/* Tempo d'irrigazione necessario */}
+              <div className="bg-gradient-to-br from-slate-900 to-slate-950 p-8 rounded-2xl border border-slate-800 flex flex-col justify-center items-center text-center shadow-inner">
+                <span className="text-xs text-slate-500 uppercase font-black mb-2 tracking-[0.2em]">Tempo Necessario</span>
+                <div className="flex items-baseline space-x-3">
+                  <span className="text-5xl md:text-6xl font-black text-leaf-400 drop-shadow-[0_0_15px_rgba(74,222,128,0.3)]">
+                    {maxIrrigationTime}
+                  </span>
+                  <span className="text-slate-400 font-black text-xl">{maxIrrigationTime === 1 ? 'ora' : 'ore'}</span>
                 </div>
               </div>
 
