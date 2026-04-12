@@ -124,6 +124,19 @@ const IrrigationAdvisor: React.FC = () => {
     return `${m} min`;
   };
 
+  const handleTimeChange = (newTime: number) => {
+    setMaxIrrigationTime(newTime);
+    if (newTime > 0) {
+      const crop = CROPS[cropKey];
+      const kc = crop.kc[growthStage];
+      const etc = et0 * kc;
+      const volumeLiters = etc * systemArea;
+      // pumpFlowRate (L/s) = Volume (L) / (Time (h) * 3600)
+      const newPumpFlow = volumeLiters / (newTime * 3600);
+      setPumpFlowRate(parseFloat(newPumpFlow.toFixed(2)));
+    }
+  };
+
   return (
     <section id="irrigation-advisor" className="py-24 bg-white border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -427,12 +440,12 @@ const IrrigationAdvisor: React.FC = () => {
               <div className="relative pt-6 pb-2">
                 <input
                   type="range"
-                  min="0"
+                  min="0.1"
                   max="24"
                   step="0.1"
-                  readOnly
                   value={maxIrrigationTime}
-                  className="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-default accent-leaf-500 transition-all pointer-events-none"
+                  onChange={(e) => handleTimeChange(parseFloat(e.target.value))}
+                  className="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-leaf-500 hover:accent-leaf-400 transition-all"
                 />
                 <div className="flex justify-between mt-2 text-[10px] text-slate-500 font-bold uppercase tracking-tighter">
                   <span>0h</span>
@@ -443,7 +456,7 @@ const IrrigationAdvisor: React.FC = () => {
                 </div>
               </div>
               <p className="text-xs text-slate-500 italic">
-                Tempo calcolato per soddisfare il volume richiesto con la portata della pompa.
+                Sposta il cursore per regolare il tempo e calcolare la portata della pompa necessaria.
               </p>
               
               {result.pumpTimeHours > 24 && (
