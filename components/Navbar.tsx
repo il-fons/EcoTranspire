@@ -52,9 +52,6 @@ const Navbar: React.FC = () => {
           <button onClick={() => scrollToSection('sector-design')} className={`font-medium hover:opacity-75 ${textClasses}`}>
             Progettazione settori irrigui
           </button>
-          <button onClick={() => scrollToSection('ai-expert')} className={`px-4 py-2 rounded-full font-bold transition-colors shadow-sm ${buttonClasses}`}>
-            Chiedi all'Esperto
-          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -79,9 +76,6 @@ const Navbar: React.FC = () => {
           </button>
           <button onClick={() => scrollToSection('sector-design')} className="text-slate-700 font-medium py-2">
             Progettazione settori irrigui
-          </button>
-          <button onClick={() => scrollToSection('ai-expert')} className="bg-leaf-600 text-white py-3 rounded-lg font-bold text-center">
-            Chiedi all'Esperto
           </button>
         </div>
       )}

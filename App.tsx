@@ -4,7 +4,6 @@ import Hero from './components/Hero';
 import Explanation from './components/Explanation';
 import Calculator from './components/Calculator';
 import IrrigationAdvisor from './components/IrrigationAdvisor';
-import AiAdvisor from './components/AiAdvisor';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
@@ -26,7 +25,6 @@ const App: React.FC = () => {
         <Explanation />
         <Calculator />
         <IrrigationAdvisor />
-        <AiAdvisor />
       </main>
       <Footer />
     </div>
